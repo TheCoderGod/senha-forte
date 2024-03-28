@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+# PROGRAMA PARA VERIFICAR SE A SENHA INFORMADA EH FORTE
+# 8 ou mais caracteres
+# pelo menos uma letra minuscula
+# pelo menos uma letra maiuscula
+
+	echo "Digite uma senha forte: " #Usuario insere a senha
+	read -s s #-s para esconder a senha na hora da digitacao
+
+	if [[ ${#s} -ge 8 ]]; then #If para verificar se eh igual ou maior a 8
+		if [[ $s =~ [[:upper:]] ]]; then #If para verificar se tem pelo menos uma maiuscula
+			if [[ $s =~ [[:lower:]] ]]; then #If para verificar se tem p menos uma minu
+				if [[ $s =~ [[:digit:]] ]]; then #If para verificar se tem p menos um num
+				echo "Maior ou igual a oito digitos"
+				echo "Tem letra maiuscula"
+				echo "Tem letra minuscula"
+				echo "Tem um numero"
+				echo "Senha FORTE!"
+				else #Else Numero
+				echo "Maior ou igual a oito digitos"
+				echo "Tem letra maiuscula"
+				echo "Tem letra minuscula"
+				echo "NAO TEM NUMERO"
+				echo "Senha fraca! Quase la!"
+				fi #Fim IF numero
+			else #else minuscula
+			echo "Maior ou igual a oito digitos"
+			echo "Tem letra maiuscula"
+			echo "NAO TEM LETRA MINUSCULA"
+			echo "Senha fraca!"
+			fi
+			#Fim IF minuscula
+		else #Else maiuscula
+		echo "Maior ou igual a oito digitos"
+		echo "Falta letra maiuscula"
+		echo "Senha fraca!"
+		fi #Fim IF maiuscula
+	else #Else tamanho
+	echo "Senha menor que 8 digitos"
+	echo "Senha fraca!"
+	fi #FIm else tamanho
